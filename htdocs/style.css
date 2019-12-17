@@ -1,0 +1,73 @@
+
+header{
+    margin: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+    vertical-align: baseline;
+    padding: 50px;
+    background-color: lightblue;
+}
+
+ul{
+    list-style: none;
+}
+
+.category{
+    font-size: 25px;
+    margin: 20px;
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\2212"; /* "minus" icon */
+    float: right;
+    color: rgba(0, 0, 0);
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+    content: "\002b"; /* "plus" icon */
+    color: rgba(35, 214, 245, 0.466);
+}
+
+/*
+.selflink
+{
+    height: 50px;
+    line-height: 50px;
+    font-size: large;
+    padding: 0 28px 0 16px;
+    border-bottom: 1px solid blue;  showing only for first one
+}
+
+.tab{
+    text-align: center;
+    background-color: blue;
+    padding: 100%;
+    border-spacing: 100px;
+    border: 1;
+    font-size: 5ch;
+    width: 23px;
+}
+
+.row
+{
+    background-color: lavender;
+}
+
+.col1{
+    margin:3px;
+    min-height:600px;
+    text-align: center;
+}
+
+.col2{
+    margin:3px;
+    min-height:600px;
+    text-align: center;
+    background-color: grey;
+}
+*/
+

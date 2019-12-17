@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+            body{
+                margin: 0;
+                background-color: ghostwhite;
+            }
+            .navbar {
+                background-color: black;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+
+            .navbar a {
+                float: left;
+                color: ghostwhite;
+                text-align: center;
+                text-decoration: none;
+                padding: 15px 18px;
+                font-size: larger;
+            }
+
+            .navbar a:hover {
+                background: ghostwhite;
+                color: black;
+            }
+
+            .container {
+                position: relative;
+                text-align: center;
+                color: white;
+                width: 100%;
+            }
+
+            .top-left {
+                position: absolute;
+                top: 8px;
+                left: 50px;
+            }
+            #para {
+                text-align: left;
+                color: black;
+            }
+            
+            .column {
+                float: left;
+                padding: 10px;
+                height: 300px;
+                
+            }
+            .right {
+                width: 40%;
+            }
+
+            .left {
+                width: 60%;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .row2{
+                margin-right: 5%;
+            }
+
+            #th1{
+                text-align: left;
+                background-color: rgba(135, 236, 250, 0.274);
+                color: rgba(0, 140, 205, 0.76);
+                height: 50px;
+            }
+            
+            #th2{
+                text-align: justify;
+                color: black;
+                height: 50px;
+                font-size: 18px;
+            }
+
+            #td1 {
+                text-align: justify;
+                height: 100px;
+            }
+            table {
+                width: 80%;
+                padding: 10px;
+                border-collapse: collapse;
+                border: 1px solid  rgba(53, 196, 191, 0.801)
+            }
+            li{
+                text-align: justify;
+            }
+            .row1:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        </style>
+
+        <script>
+        function validateForm() {
+                var valid = 1;
+                var email = document.getElementById('email');
+                var email_validation = document.getElementById("email_validation");
+                var fname = document.getElementById('fname');
+                var fname_validation = document.getElementById("fname_validation");
+                var lname = document.getElementById('lname');
+                var lname_validation = document.getElementById("lname_validation");
+                var number = document.getElementById('number');
+                var number_validation = document.getElementById("number_validation");
+                var email_check = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                
+                if (fname.value === "") {
+                  valid = 0;
+                  fname_validation.innerHTML = "Field Required";
+                  fname_validation.style.display = "block";
+                  fname_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  fname_validation.style.display = "none";
+                  fname_validation.parentNode.style.backgroundColor = "transparent";
+                }
+
+                if (lname.value === "") {
+                  valid = 0;
+                  lname_validation.innerHTML = "Field Required";
+                  lname_validation.style.display = "block";
+                  lname_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  lname_validation.style.display = "none";
+                  lname_validation.parentNode.style.backgroundColor = "transparent";
+                }
+
+                if(number.value === "") {
+                    valid = 0;
+                    number_validation.innerHTML = "Field Required";
+                    number_validation.style.display = "block";
+                    number_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                    number_validation.style.display = "none";
+                    number_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                if(phonenumber(number)) {
+                    valid = 0;
+                    number_validation.innerHTML = "Enter valid number";
+                    number_validation.style.display = "block";
+                    number_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                    number_validation.style.display = "none";
+                    number_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                function phonenumber(number) {
+                    var phoneno = /^\d{10}$/;
+                    if(number.value.match(phoneno)) {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                
+                if (email.value === "") {
+                  valid = 0;
+                  email_validation.innerHTML = "Field Required";
+                  email_validation.style.display = "block";
+                  email_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  email_validation.style.display = "none";
+                  email_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                
+                if(!email_check.test(email.value)) {
+                  valid = 0;
+                  email_validation.innerHTML = "Invalid email address";
+                  email_validation.style.display = "block";
+                  email_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  email_validation.style.display = "none";
+                  email_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                if (!valid)
+                  return false;
+              }
+
+            $(document).ready(function(){
+                $("#hover1").hover(function(){
+                    alert("Health Insurance!");
+                    },
+                    function(){
+                  }); 
+                });
+
+            $(document).ready(function(){
+                $("#hover2").hover(function(){
+                    alert("Get Low Cost Health Insurance");
+                },
+                function(){
+                    alert("You left Insurance!");
+                  }); 
+                });
+                
+        </script>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="Home.html">Salus Populi</a>
+            <a href="Home.html">Home</a>
+            <a href="appointment.html">Appointment</a>
+            <a href="faq.html">FAQs</a>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <img src="image.jpg" width="100%" height=400px>
+            
+            <div class="top-left">
+                <br><br><br><br>
+                <h4 id="para">HEALTH INSURANCE</h4>
+                <h1 id="para">Wise financial thinking for a healthy life</h1>
+            </div>
+        </div>
+        <br><br>
+        <div class="row1">
+            <div class="column left">
+                <div id="hover1">
+                <table  cellpadding="15" cellspacing="15">
+                    <tr>
+                        <th id="th1"><h2><strong>What is Health Insurance?</strong></h2></th>
+                    </tr>
+                    <tr>
+                        <td id="td1">
+                            Health insurance is a type of insurance that fully or partially covers an individual's medical and surgical expenses. It's an agreement between you and your insurance company, where for an annual premium, the insurer pays for your hospitalization and other medical expenses as mentioned in your policy.
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                <br><br>
+                <table  cellpadding="15" cellspacing="15">
+                    <tr>
+                        <th id="th2">
+                            <bold>Basic Health Plan:</bold> <br>
+                            This provides for the hospitalization expenses you might face in case of accidents, day-care procedures, surgical treatments or critical illnesses. However, the features, limits and sum assured will vary from insurer to insurer.
+                            <br><br>
+                            <bold>Super top-up health plan:</bold> <br>
+                            Similar to top-ups for mobile network services, this adds supplementary coverage to your existing health plan. The aim is to increase overall sum assured with its corresponding coverage by paying a relatively lower premium.<br>
+                        </th>
+                    </tr>
+                </table>
+
+                <br><br>
+                
+            </div>
+            <div class="column right" id="hover2">
+                <h1><center>Get Low Cost Health Insurance</center></h1>
+                <fieldset>
+                    <legend>Patient Details</legend>
+                    <br>
+                    <form id="appointment_form" action="" method="POST" onsubmit="return validateForm();" >
+                        <div class="row">
+                            <label class="required" for="fname">Your first name:</label><br />
+                            <input id="fname" name="fname" type="text" value="" size="50" /><br />
+                            <span id="fname_validation" class="error"></span>
+                        </div>
+
+                        <br><br>
+
+                        <div class="row">
+                            <label class="required" for="lname">Your last name:</label><br />
+                            <input id="lname" name="lname" type="text" value="" size="50" /><br />
+                           <span id="lname_validation" class="error"></span>
+                        </div>
+
+                        <br><br>
+
+                        <div class="row">
+                            <label class="required" for="email">Your email:</label><br />
+                            <input id="email" name="email" type="text" value="" size="50" /><br />
+                            <span id="email_validation" class="error"></span>
+                        </div>
+
+                        <br><br>
+
+                        <div class="row">
+                            <label class="required" for="number">Your contact number:</label><br />
+                            <input id="number" name="number" type="text" value="" size="50" /><br />
+                            <span id="number_validation" class="error"></span>
+                        </div>
+
+                        <br><br>
+
+                        <div class="row">
+                            <input type="submit" value="Schedule a call with our expert" />
+                        </div>
+
+                        <br><br>
+                    </form>
+                </fieldset>
+            </div> <!--end  of column -->
+        </div> <!--end  of row-->
+
+        <br>  
+        <div class="row2">                                                                                                                                                          <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>All About Health Insurance Policy</h2>
+                <ul>
+                    <li>
+                        Types of Health Insurance Plans in India
+                        <ul>
+                            <li>Family floater Plans: Family health insurance plans cover the entire family in one health insurance plan. It works under the assumption that not all members of a family will suffer from illness at one time. These plans cover hospital-related expenses which can be pre and post hospitalization. Most health insurance companies in India offering family insurance have a wide network of hospitals that help the insured people in times of an emergency.</li>
+                            <li>Senior Citizens Health Insurance Plans: As the name suggests, senior citizen health insurance plans are for the older people of the family. These plans cover health issues arising during old age. As per IRDAI guidelines, each insurer must provide cover up to the age of 65 years. </li>
+                            <li> Maternity Insurance Plans: Maternity health insurance plans provide coverage for maternity and other additional expenses. These policies take care of both pre and post-natal care, and delivery of baby i.e. normal or caesarean deliveries. Just like other health insurance plans, the maternity insurance providers usually have a wide range of network hospitals and also takes care of ambulance expenses. As you progress and you reach 60 years of age, your body needs special attention. Hence, it is only wise to invest in a health insurance plan that takes care of your specific needs. Various insurance providers have customized plans that are designed for senior citizens and cater to the needs of older people of the society.</li>
+                            <li>Hospital Daily Cash Benefit Plans: Hospital Daily cash benefits is a defined benefit policy that provides a certain sum of money for every day of hospitalization.</li>
+                            <li>Critical Illness Plans: These plans are benefit-based policies, where a lump sum benefit amount is paid on diagnosis of covered critical illness. These diseases are usually specific, with high severity and low frequency in nature. Hence, the treatment cost is high when compared to day to day medical / treatment needs. Some of these illnesses include heart attack, cancer, stroke etc.</li>
+                            <li>Health Insurance for Parents: As a child, your parents always invested in raising you well and giving you the best. Hence, now it is important that their needs are catered to so that they stay in the pink of their health in their later years. Therefore, various insurance providers have rolled out special health insurance plans that cater to the medical needs of your parents. These plans cover pre and post hospitalization charges, ambulance charges and a few of them are also inclusive of pre-existing diseases.</li>
+                        </ul>
+                    </li>
+                    <br><br>
+                    <li>                        
+                        Why Health Insurance Plan is Important?<br>
+                        <ul>
+                            <li>A person who wishes to enhance his existing health cover should definitely opt for the fixed benefit health insurance plan. Besides, a person fearing to face a loss of income due to exorbitant hospitalization expenses should certainly opt for this plan. At times, employers do not offer paid medical leave. This is when a fixed benefit health insurance plan comes as a saviour.</li>
+                            <li>Anyone at any age can fall prey to any critical illness. Having a fixed benefit health insurance plan provides a sense of relief without disturbing your hard-earned savings. A lump sum amount received post making a claim without any sub-limits proves as the financial net for your medical expenses and the years to come!</li>
+                        </ul>
+                        Investing in a health insurance plan is extremely important for multiple reasons. They are:
+                        <br>
+                        <ul>
+                            <li>Medical treatments are a fiscal burden on the family</li>
+                            <li>Uninsured people may receive less medical care due to lack of funds</li>
+                            <li>They are prone to more risks as they do not have access to regular medical checkups.</li>
+                            <li>It protects one’s family through unexpected, unforeseen health-related financial situations.</li>
+                        </ul>
+                    </li>
+                    <br><br>
+                    <li>
+                        How Can I Choose Best Health Insurance Plan for Your Family?<br>
+                        There are several parameters to be considered before you invest in a health insurance plan. Some of them are:
+                        <br>
+                        <ul>
+                            <li>Your budget: One needs to consider the financial budget of the family, based on which he/she invests in a health insurance plan that covers all risks related to health of the insured and their family members.</li>
+                            <li>Co-payment: Another consideration factor that one must consider is whether or not the health insurance plan provides a co-payment facility. A standard feature, co-payment is defined as a fixed percentage of each claim amount that has to be paid by the insured.</li>
+                            <li>Number of family members covered: While investing in a health insurance plan, one must always consider the number of family members that shall benefit from the policy. Most insurance providers cover up to 4 to 6 family members under a family floater health insurance plan in India.</li>
+                            <li>Claim settlement process: Claim settlement was a cumbersome process which obstructed a person from investing in a health insurance plan. All insurance providers in today’s day and age, provide easy, hassle-free claim settlement procedures that makes it convenient for the insured.</li>
+                            <li>Addition of new family member: Addition of a new family member is a moment of joy. Hence, when investing in a health insurance plan, one must also consider the conditions in the policy in case you wish to get the new family member added and insured under your health insurance policy.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> 
+    </body>
+</html>
+
+
+
+
+

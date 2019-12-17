@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LOGIN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        #image{
+            background-image: url(watermark.png)
+        }
+        fieldset.scheduler-border
+        {
+            border: 1px groove #ddd !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js">
+    </script>
+        <script>
+            $(document).ready(function(){
+                function checkFields(){
+                    return ($("#name").val() && $("#email").val());
+                }            
+    $("#form1").submit(function(){
+                    if(checkFields()){
+                        $.post(
+                            'test.php', $("#form1").serialize(),
+                            function(data){
+                                $("#div1").html(data);
+    
+                            }
+                        );
+                    }
+                    else alert("Please fill in name and email fields!");
+                    return false;
+                });
+            });
+        </script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">SALUS POPULI</a>
+            </div>  
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="C:\Users\Lenovo\Desktop\SalusPopuli\faq\faq.html">FAQs</a></li>
+              <li><a href="#">Hiring</a></li>
+              <li><a href="#">Insurance</a></li>
+              <li><a href="#">Contact Us</a></li>
+           </ul>    
+        </div>
+    </nav>
+<br><br><br>
+  <div id="image">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <h3 style="color:ghostwhite">LOGIN</h3>
+            <br>
+        </div>
+        <div class="row">
+			<div class="col-md-6 col-md-offset-3">
+                    <form action="connectlog.php" method="post">
+                    <fieldset class="scheduler-border">
+                        <br><br><br>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="validationDefault01" style="color:ghostwhite"> Name(as registered)</label>
+                            <input type="text" name="fname" id="fname" class="form-control" required autofocus placeholder="Your name" />
+                        </div>
+                    </div>
+                    
+                
+					<div class="row form-group"></div>
+					<div class="col-md-12">
+						<label for="validationDefault03" style="color:ghostwhite">PASSWORD</label>
+						<input type="password" name="PASSWORD" id="PASSWORD" class="form-control" required placeholder=" PASSWORD" />
+					</div>
+                    </div>
+
+                    
+    
+            <div class="row form-group">
+                <div class="col-md-2 col-md-offset-5 ">
+                    <input type="submit" id="btn-submit" class="btn btn-primary" value="login">
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2 col-md-offset-5 " style="color:ghostwhite">
+                        <input type="checkbox"  checked="checked" name="remember" > Remember me
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 col-md-offset-5" style="color:ghostwhite">
+                            <input type="checkbox"   name="I am not a robot" > I am not a robot
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2 col-md-offset-5 ">
+                                <span class="psw" style="color:ghostwhite">Forgot <a href="#" style="color:ghostwhite">password?</a></span>
+                            </div>
+                            <div class="col-md-2 col-md-offset-5 ">
+                                <span class="signup" style="color:ghostwhite">not a member yet? <a href="sign-up.html" style="color:ghostwhite">SIGNUP</a></span>
+                            </div>
+                            </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+      </div>
+</body>
+</html>
+ <ul class="nav navbar-nav">
+              <li class="active"><a href="Home.html">Home</a></li>
+              
+           </ul>    

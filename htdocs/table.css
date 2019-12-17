@@ -1,0 +1,32 @@
+table {  
+    color: rgb(10, 1, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 175px; 
+    border-collapse: collapse; 
+    border-spacing: 0; 
+    border: 1px solid rgba(0, 0, 0, 0.384);
+}
+
+td, th {  
+    height: 50px; 
+}
+
+td {  
+    text-align: center;
+    font-weight: bold;
+}
+
+     
+tr:nth-child(even) td { 
+    background: rgb(241, 241, 241); 
+}   
+
+       
+tr:nth-child(odd) td { 
+    background: rgb(254, 254, 254); 
+}  
+
+tr td:hover { 
+    background:rgb(102,102,102); color: rgb(255,255,255); 
+}  
+

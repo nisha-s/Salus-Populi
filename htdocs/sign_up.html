@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function validateForm() {
+                var flag = 1;
+                var email = document.getElementById('email');
+                var email_validation = document.getElementById("email_validation");
+                var name = document.getElementById('name');
+                var name_validation = document.getElementById("name_validation");
+                var number = document.getElementById('number');
+                var number_validation = document.getElementById("number_validation");
+                var pw = document.getElementById('pw');
+                var pw_validation = document.getElementById("pw_validation");
+                //var cpw = document.getElementById('cpw');
+                //var cpw_validation = document.getElementById("cpw_validation");
+                var email_check = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                var pw_check = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+                //var pw1 = pw.value;
+                //var pw2 = cpw.value;
+                
+                if (name.value === "") {
+                  flag = 0;
+                  name_validation.innerHTML = "Field Required";
+                  name_validation.style.display = "block";
+                  name_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  name_validation.style.display = "none";
+                  name_validation.parentNode.style.backgroundColor = "transparent";
+                }
+
+                if(number.value === "") {
+                    flag = 0;
+                    number_validation.innerHTML = "Field Required";
+                    number_validation.style.display = "block";
+                    number_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                    number_validation.style.display = "none";
+                    number_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                if(phonenumber(number)) {
+                    flag = 0;
+                    number_validation.innerHTML = "Enter valid phone number";
+                    number_validation.style.display = "block";
+                    number_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                    number_validation.style.display = "none";
+                    number_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                function phonenumber(number) {
+                    var phoneno = /^\d{10}$/;
+                    if(number.value.match(phoneno)) {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+
+                if (email.value === "") {
+                  flag = 0;
+                  email_validation.innerHTML = "Field Required";
+                  email_validation.style.display = "block";
+                  email_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  email_validation.style.display = "none";
+                  email_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                
+                if(!email_check.test(email.value)) {
+                  flag = 0;
+                  email_validation.innerHTML = "Invalid email address";
+                  email_validation.style.display = "block";
+                  email_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  email_validation.style.display = "none";
+                  email_validation.parentNode.style.backgroundColor = "transparent";
+                }
+
+                if (pw.value === "") {
+                  flag = 0;
+                  pw_validation.innerHTML = "Field Required";
+                  pw_validation.style.display = "block";
+                  pw_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  pw_validation.style.display = "none";
+                  pw_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                
+                if(!pw.value.match(pw_check)) {
+                  flag = 0;
+                  pw_validation.innerHTML = "Invalid password";
+                  pw_validation.style.display = "block";
+                  pw_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  pw_validation.style.display = "none";
+                  pw_validation.parentNode.style.backgroundColor = "transparent";
+                }
+
+                /*if (cpw.value === "") {
+                  flag = 0;
+                  cpw_validation.innerHTML = "Field Required";
+                  cpw_validation.style.display = "block";
+                  cpw_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                } else {
+                  cpw_validation.style.display = "none";
+                  cpw_validation.parentNode.style.backgroundColor = "transparent";
+                }
+                
+                if(pw1 === pw2) {
+                  cpw_validation.style.display = "none";
+                  cpw_validation.parentNode.style.backgroundColor = "transparent";
+                } else {
+                  flag = 0;
+                  cpw_validation.innerHTML = "Passwords are not matching";
+                  cpw_validation.style.display = "block";
+                  cpw_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                  pw_validation.innerHTML = "Passwords are not matching";
+                  pw_validation.style.display = "block";
+                  pw_validation.parentNode.style.backgroundColor = "rgb(255, 223, 223)";
+                }*/
+
+                if (!flag)
+                  return false;
+            }
+
+        </script>
+        <style>
+            body {
+                font-family: sans-serif;
+                margin: 450px;
+                margin-top: 75px;
+                background-image: url("watermark.png");
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            label.required:after {
+                content:'*';
+                color:red;
+            }
+
+            span.error {
+                background-color:rgb(255, 223, 223);
+                color:red;
+            }
+            .row {
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><center style="color:ghostwhite">Sign Up</center></h1>
+        <fieldset>
+            <legend style="color:ghostwhite">Details</legend>
+        <form id="appointment_form" action="connectsign.php" method="POST" onsubmit="return validateForm();" >
+            <div class="row">
+                <label class="required" for="name" style="color:ghostwhite">Name:</label><br />
+                <input id="name" name="name" type="text" value="" size="50" /><br />
+                <span id="name_validation" class="error"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="email" style="color:ghostwhite">Email:</label><br />
+                <input id="email" name="email" type="text" value="" size="50" /><br />
+                <span id="email_validation" class="error"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="number" style="color:ghostwhite">Contact Number:</label><br />
+                <input id="number" name="number" type="text" value="" size="50" /><br />
+                <span id="number_validation" class="error"></span>
+            </div>
+
+            <div class="row" title="1-number,uppercase,lowercase 6-15:length">
+                <label class="required" for="pw" style="color:ghostwhite">Password:</label><br />
+                <input id="pw"  name="pw" type="password" value="" size="50" /><br />
+                <span id="pw_validation" class="error"></span>
+            </div>
+            
+            <!--<div class="row">
+                <label class="required" for="cpw">Confirm Password:</label><br />
+                <input id="cpw" name="cpw" type="password" value="" size="50" /><br />
+                <span id="cpw_validation" class="error"></span>
+            </div>-->
+
+            <div class="row"><br/>
+            <input type="submit" value="Submit" />
+            </div>
+        </form>
+        </fieldset>
+    </body>
+</html> 
